@@ -1,0 +1,6 @@
+functions-framework==3.*
+
+selenium==4.15.2
+chromedriver-binary==77.0.3865.40.0
+beautifulsoup4==4.12.2
+webdriver-manager==4.0.1
