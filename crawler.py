@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -10,6 +10,8 @@ from selenium.webdriver.support.ui import Select
 
 from game import Game
 
+
+local_timezone = timezone(timedelta(hours=8))  # 台北時間（UTC+08:00）
 
 def get_games_from_schedules(url, my_team_name):
 
@@ -92,4 +94,5 @@ def date_string_to_datetime(date_string, time_string):
     
     duration = int((end_datetime - start_datetime).total_seconds() / 60)
 
+    start_datetime = start_datetime.replace(tzinfo=local_timezone)
     return start_datetime, duration
